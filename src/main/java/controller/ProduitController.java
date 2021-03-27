@@ -16,15 +16,10 @@ public class ProduitController {
                     produitService.ajout();
                     break;
                 case 2:
-                    produitService.Update();
-                    break;
-                case 3:
                     produitService.liste();
                     break;
-                case 4:
-                    produitService.getByid();
-                    break;
+
             }
-        }while (choix != 5);
+        }while (choix != 3);
     }
 }

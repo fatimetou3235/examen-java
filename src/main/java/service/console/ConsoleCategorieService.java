@@ -23,16 +23,14 @@ public class ConsoleCategorieService implements CategorieService {
     public void menue() {
         System.out.println("\tCategorie");
         System.out.println("1-Enregistrer un categorie");
-        System.out.println("2-Modifier un categorie");
-        System.out.println("3-lister les categorie");
-        System.out.println("4-Retrouver a partir d'un identifiant");
-        System.out.println("5-Quiter");
+        System.out.println("2-lister les categorie");
+        System.out.println("3-Quiter");
     }
 
     public void ajout() {
         try{
             Categorie cat = new Categorie();
-            System.out.println("entrez la description");
+            System.out.println("description");
             scanner.nextLine();
             cat.setNomCategorie(scanner.nextLine());
            jdbcCategorieRepository.add(cat);
@@ -42,21 +40,7 @@ public class ConsoleCategorieService implements CategorieService {
         }
     }
 
-    public void Update() {
-        this.liste();
-        try{
-           // System.out.println("selectionner l'id du categorie a modifier");
-            int id = this.lireChoix();
-            Categorie cat = jdbcCategorieRepository.findbyId(id);
-            scanner.nextLine();
-            System.out.println("entrez la description");
-            cat.setNomCategorie(scanner.nextLine());
-            jdbcCategorieRepository.update(cat);
-            System.out.println("categorie Modifier");
-        }catch (Exception e){
-            System.out.println(e);
-        }
-    }
+
 
     public void liste() {
         System.out.println("Liste des categorie");

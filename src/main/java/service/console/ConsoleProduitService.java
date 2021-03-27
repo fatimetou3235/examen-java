@@ -24,27 +24,25 @@ public class ConsoleProduitService implements ProduitService {
     public void menue() {
         System.out.println("\tProduit");
         System.out.println("1-Enregistrer un produit");
-        System.out.println("2-Modifier un produit");
-        System.out.println("3-lister les produits");
-        System.out.println("4-Retrouver a partir d'un identifiant");
-        System.out.println("5-Quiter");
+        System.out.println("2-lister les produits");
+        System.out.println("3-Quiter");
     }
 
     public void ajout() {
         try{
             Produit prod = new Produit();
             scanner.nextLine();
-            System.out.println("entrez le code");
+            System.out.println("code");
             prod.setCode(scanner.nextLine());
-            System.out.println("entrez le nom du produit");
+            System.out.println("nom du produit");
             prod.setNomProduit(scanner.nextLine());
-            System.out.println("entrer la description");
+            System.out.println("description");
             prod.setDescriptionProduit(scanner.nextLine());
             this.consoleCategorieService.liste();
             prod.setCategorie(consoleCategorieService.getByid());
-            System.out.println("entrer la quantite");
+            System.out.println("quantite");
             prod.setQteProduit(scanner.nextFloat());
-            System.out.println("entrer le prix unitaire");
+            System.out.println("prix unitaire");
             prod.setPrixProduit(scanner.nextFloat());
             jdbcProduitRepository.add(prod);
             System.out.println("Produit ajouter avec succès");
@@ -53,32 +51,7 @@ public class ConsoleProduitService implements ProduitService {
         }
     }
 
-    public void Update() {
-        this.liste();
-        try{
 
-            Produit prod = this.getByid();
-            if (prod == null) return;
-            scanner.nextLine();
-            System.out.println("entrez le code");
-            prod.setCode(scanner.nextLine());
-            System.out.println("entrez le nom du produit");
-            prod.setNomProduit(scanner.nextLine());
-            System.out.println("entrer la description");
-            prod.setDescriptionProduit(scanner.nextLine());
-            this.consoleCategorieService.liste();
-            prod.setCategorie(consoleCategorieService.getByid());
-            System.out.println("intrer la quantite");
-            prod.setQteProduit(scanner.nextFloat());
-            System.out.println("entrer le prix unitaire");
-            prod.setPrixProduit(scanner.nextFloat());
-            jdbcProduitRepository.update(prod);
-            System.out.println("Produit Modifier avec succès");
-        }catch (Exception e){
-            System.out.println(e);
-        }
-
-    }
 
     public void liste() {
         System.out.println("Liste des produits");

@@ -18,7 +18,7 @@ public class JdbcProduitRepository implements ProduitRepository {
         String query = "INSERT into produit value(null,?,?,?,?,?,?)";
         try {
 
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, prod.getCode());
@@ -40,7 +40,7 @@ public class JdbcProduitRepository implements ProduitRepository {
         String query = "UPDATE produit set code = ?, nomproduit = ?, description = ?, qteproduit = ?, prixproduit = ?, idcategorie = ? WHERE id = ?";
         try {
 
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, prod.getCode());
@@ -68,7 +68,7 @@ public class JdbcProduitRepository implements ProduitRepository {
         //mapper le résultat
         List<Produit> Lprod = new ArrayList<Produit>();
         try {
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
@@ -100,7 +100,7 @@ public class JdbcProduitRepository implements ProduitRepository {
     public Produit findbyId(int id) {
         String query = "SELECT * from produit where id = ?";
         try {
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setInt(1, id);

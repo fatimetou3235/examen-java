@@ -17,7 +17,7 @@ public class JdbcCategorieRepository implements CategorieRepository {
     public boolean add(Categorie cat) {
         String query = "INSERT into categorie value(null,?)";
         try {
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, cat.getNomCategorie());
             //System.out.println(statement.execute());
@@ -34,7 +34,7 @@ public class JdbcCategorieRepository implements CategorieRepository {
         String query = "UPDATE categorie set nom = ? WHERE id = ?";
         try {
 
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setString(1, cat.getNomCategorie());
@@ -57,7 +57,7 @@ public class JdbcCategorieRepository implements CategorieRepository {
         //mapper le résultat
         List<Categorie> Lcat = new ArrayList<Categorie>();
         try {
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query) ;
             Categorie cat  = new Categorie();
@@ -82,7 +82,7 @@ public class JdbcCategorieRepository implements CategorieRepository {
     public Categorie findbyId(int id) {
         String query = "SELECT * FROM `categorie` WHERE id = ?";
         try {
-            Connection connection = dataSource.createConnection();
+            Connection connection = dataSource.Connection();
             PreparedStatement statement = connection.prepareStatement(query);
 
             statement.setInt(1, id);

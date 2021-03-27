@@ -9,19 +9,15 @@ public class MainService {
         this.scanner = new Scanner(System.in);
     }
 
-    public void bienvenumessage(){
-        System.out.println("bienvenue dans le platform de gestion de stock\n");
+    public void message(){
+        System.out.println(" platform de gestion APPRO\n");
     }
 
     public static void MenuePrincipale(){
         System.out.println("-------------------------------------------------------------------\n");
         System.out.println("A. Categorie");
         System.out.println("B. Produit");
-        System.out.println("C. Fournisseur");
-        System.out.println("D. Commande");
-        System.out.println("E. Approvisionnement");
-        System.out.println("F. Vente");
-        System.out.println("G. Quiter");
+        System.out.println("C. Quiter");
 
     }
     public String lireChoix(){

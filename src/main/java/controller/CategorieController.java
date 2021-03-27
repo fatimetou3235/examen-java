@@ -21,17 +21,10 @@ public class CategorieController {
                  break;
                 case 2:
                     //scanner.nextLine();
-                    CategorieService.Update();
-                 break;
-                case 3:
-                    //scanner.nextLine();
                     CategorieService.liste();
                  break;
-                case 4:
-                    //scanner.nextLine();
-                    CategorieService.getByid();
-                 break;
+
             }
-        }while (choix != 5);
+        }while (choix != 3);
     }
 }
